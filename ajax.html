@@ -11,27 +11,24 @@ $(document).ready(function() {
 
 	$("#enviar-btn").click(function() {
 
-		//Obtenemos el valor del campo nombre
 		var name = $("input#name").val();
 
-		//Validamos el campo nombre, simplemente miramos que no esté vacío
 		if (name == "") {
 			$("label#name_error").show();
 			$("input#name").focus();
 			return false;
 		}
 
-		//Obtenemos el valor del campo password
 		var password = $("input#password").val();
 
-		//Validamos el campo password, simplemente miramos que no esté vacío
+		
 		if (password == "") {
 			$("label#pass_error").show();
 			$("input#password").focus();
 			return false;
 		}
 
-		//Construimos la variable que se guardará en el data del Ajax para pasar al archivo php que procesará los datos
+	
 		var dataString = 'name=' + name + '&password=' + password;
 
 		$.ajax({
@@ -59,7 +56,7 @@ runOnLoad(function(){
 $name = utf8_decode($_POST['name']);
 $password = md5($_POST['password']);
 
-//Para la conexión deberás introducir el usuario y password de tu base de datos
+
 $con = mysql_connect('localhost', 'usuario', 'password');
 mysql_select_db("tu_base_de_datos", $con);
 
